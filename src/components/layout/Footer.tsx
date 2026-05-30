@@ -75,23 +75,21 @@ const iconMap = {
 export function Footer() {
   return (
     <footer className='py-12 md:py-16'>
-      <div className='max-w-[1200px] mx-auto px-5 md:px-8'>
+      <div className='max-w-300 mx-auto px-5 md:px-8'>
         <div className='bg-surface-light dark:bg-surface-dark rounded-3xl p-8 md:p-12'>
           {/* Top row */}
           <div className='flex flex-col md:flex-row md:items-start md:justify-between gap-6'>
-            <h2 className='font-display text-2xl md:text-3xl lg:text-4xl font-bold text-text-light dark:text-text-dark leading-tight'>
-              LET'S DISCUSS
-              <br />
-              YOUR IDEAS
-            </h2>
             <Logo />
+            <h2 className='font-display text-2xl md:text-3xl lg:text-4xl font-bold text-text-light dark:text-text-dark leading-tight'>
+              LET'S DISCUSS YOUR IDEAS
+            </h2>
           </div>
 
           <hr className='my-8 border-border-light dark:border-border-dark' />
 
           {/* Bottom row */}
           <div className='flex flex-col md:flex-row md:items-center md:justify-between gap-6'>
-            <ul className='flex flex-wrap gap-x-6 gap-y-2'>
+            <ul className='flex flex-col md:flex-row md:flex-wrap gap-2 md:gap-x-6'>
               {navItems.map((item) => (
                 <li key={item.href}>
                   <a
