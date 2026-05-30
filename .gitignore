@@ -32,4 +32,4 @@ claude.json
 .anthropic/
 .cursor/
 .aider*
-.continue/
+.continue/node_modules/

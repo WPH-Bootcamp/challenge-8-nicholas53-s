@@ -24,7 +24,7 @@ export function TestimonialsSection() {
     setCurrent(i);
   };
 
-  const arrowClass = `
+  const arrowClass = `c
     shrink-0 w-10 h-10 rounded-full
     flex items-center justify-center
     bg-surface-light dark:bg-surface-dark

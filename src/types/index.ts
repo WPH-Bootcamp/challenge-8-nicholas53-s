@@ -35,7 +35,8 @@ export interface ServiceItem {
   id: number;
   title: string;
   description: string;
-  iconName: ServiceIconName;
+  iconSrc?: string;
+  iconName?: ServiceIconName;
 }
 
 export type ServiceIconName =
@@ -69,7 +70,7 @@ export interface Testimonial {
   name: string;
   role: string;
   avatar: string;
-  rating: number;
+  stars: number;
 }
 
 export interface FAQItem {
