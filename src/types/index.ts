@@ -1,128 +1,100 @@
-/**
- * Type Definitions
- *
- * File ini berisi semua TypeScript interfaces dan types yang digunakan
- * di berbagai tempat dalam aplikasi.
- *
- * Best Practices:
- * - Gunakan PascalCase untuk interface names
- * - Export semua interfaces agar bisa digunakan di file lain
- * - Group related interfaces bersama
- * - Add comments untuk explain complex types
- */
+import type { ReactNode, ButtonHTMLAttributes } from 'react';
 
-// ==========================================
-// UI Component Types
-// ==========================================
+export type Theme = 'light' | 'dark';
 
-/**
- * Button variant types
- * Gunakan ini untuk Button component
- */
-export type ButtonVariant = 'primary' | 'secondary' | 'outline';
+export interface ThemeContextValue {
+  theme: Theme;
+  toggleTheme: () => void;
+  setTheme: (theme: Theme) => void;
+}
 
-/**
- * Example: Button Props
- * Uncomment dan sesuaikan dengan kebutuhan
- */
-// export interface ButtonProps {
-//   variant?: ButtonVariant;
-//   children: React.ReactNode;
-//   onClick?: () => void;
-//   className?: string;
-//   disabled?: boolean;
-// }
+export interface NavItem {
+  label: string;
+  href: string;
+}
 
-// ==========================================
-// Section Data Types
-// ==========================================
+export interface SocialLink {
+  label: string;
+  href: string;
 
-/**
- * TODO: Define interfaces untuk data yang digunakan di sections
- *
- * Contoh:
- * - ServiceItem untuk services section
- * - TeamMember untuk team section
- * - Testimonial untuk testimonials section
- * - dll.
- */
+  icon: 'facebook' | 'instagram' | 'linkedin' | 'tiktok';
+}
 
-/**
- * Example: Service/Product Item
- */
-// export interface ServiceItem {
-//   id: number;
-//   title: string;
-//   description: string;
-//   icon?: string;
-//   image?: string;
-// }
+export interface StatItem {
+  value: string;
+  label: string;
+}
 
-/**
- * Example: Team Member
- */
-// export interface TeamMember {
-//   id: number;
-//   name: string;
-//   position: string;
-//   bio?: string;
-//   image: string;
-//   socialLinks?: {
-//     linkedin?: string;
-//     twitter?: string;
-//     github?: string;
-//   };
-// }
+export interface ProcessStep {
+  number: number;
+  title: string;
+  description: string;
+}
 
-/**
- * Example: Testimonial
- */
-// export interface Testimonial {
-//   id: number;
-//   name: string;
-//   position: string;
-//   company: string;
-//   message: string;
-//   avatar?: string;
-//   rating?: number;
-// }
+export interface ServiceItem {
+  id: number;
+  title: string;
+  description: string;
+  iconSrc?: string;
+  iconName?: ServiceIconName;
+}
 
-// ==========================================
-// Navigation Types
-// ==========================================
+export type ServiceIconName =
+  | 'code'
+  | 'smartphone'
+  | 'palette'
+  | 'cloud'
+  | 'layers'
+  | 'server'
+  | 'shield'
+  | 'check-circle'
+  | 'headphones';
 
-/**
- * Navigation menu item
- */
-// export interface NavItem {
-//   label: string;
-//   href: string;
-//   external?: boolean;
-// }
+export interface IndustryItem {
+  id: string;
+  label: string;
+  description: string;
+  image: string;
+}
 
-// ==========================================
-// Form Types (if needed)
-// ==========================================
+export interface PortfolioItem {
+  id: number;
+  category: string;
+  title: string;
+  image: string;
+}
 
-/**
- * Contact form data
- */
-// export interface ContactFormData {
-//   name: string;
-//   email: string;
-//   message: string;
-// }
+export interface Testimonial {
+  id: number;
+  quote: string;
+  name: string;
+  role: string;
+  avatar: string;
+  stars: number;
+}
 
-// ==========================================
-// TODO: Add more types as needed!
-// ==========================================
+export interface FAQItem {
+  id: number;
+  question: string;
+  answer: string;
+}
+export interface BrandLogo {
+  name: string;
+  logoSrc: string;
+  color?: string;
+}
 
-/**
- * Tips:
- * 1. Define types berdasarkan data yang kamu perlukan
- * 2. Lihat design Figma untuk understand data structure
- * 3. Make types reusable across components
- * 4. Use optional properties (?) untuk data yang tidak selalu ada
- * 5. Consider creating separate files jika types terlalu banyak
- *    Example: types/components.ts, types/data.ts, etc.
- */
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: 'primary' | 'secondary' | 'outline';
+  size?: 'sm' | 'md' | 'lg';
+  children: ReactNode;
+}
+
+/* ---------- Form ---------- */
+
+export interface ContactFormData {
+  name: string;
+  email: string;
+  message: string;
+  services: string[];
+}

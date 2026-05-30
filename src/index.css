@@ -1,44 +1,99 @@
-/**
- * Main CSS File
- *
- * Tailwind CSS v4 - Using new @import syntax
- * Docs: https://tailwindcss.com/docs/installation/using-vite
- */
+@import 'tailwindcss';
 
-@import "tailwindcss";
+@source "./**/*.{ts,tsx}";
 
-/* Tell Tailwind where to scan for classes */
-@source "./**/*.{js,jsx,ts,tsx}";
-@source "../index.html";
+@custom-variant dark (&:where(.dark, .dark *));
 
-/**
- * Custom Global Styles
- *
- * Add your custom global styles here if needed
- * Prefer using Tailwind utilities in components
- */
+@theme {
+  --animate-marquee: marquee 30s linear infinite;
+}
 
-/* Smooth scrolling for anchor links */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@theme {
+  /* Warna brand (orange) — accent utama */
+  --color-brand: #ff6b35;
+  --color-brand-hover: #ff8559;
+  --color-brand-soft: #ffe5da;
+
+  /* LIGHT mode palette */
+  --color-bg-light: #ffffff;
+  --color-surface-light: #f8f8f8;
+  --color-border-light: #e5e5e5;
+  --color-text-light: #1a1a1a;
+  --color-muted-light: #6b7280;
+
+  /* DARK mode palette */
+  --color-bg-dark: #000000;
+  --color-surface-dark: #0a0d12;
+  --color-border-dark: #181d27;
+  --color-text-dark: #ffffff;
+  --color-muted-dark: #fdfdfd;
+
+  /* Typography */
+  --font-display: 'Quicksand', system-ui, sans-serif;
+  --font-body: 'Quicksand', system-ui, sans-serif;
+}
+
+/* ============================================================================
+   Base Styles
+   ============================================================================ */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
-/* Optional: Custom scrollbar styles */
-/* Uncomment if you want custom scrollbar
+body {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar — sentuhan kecil yang bikin website lebih polished */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
-
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: transparent;
 }
-
 ::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 5px;
+  background: var(--color-brand);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand-hover);
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
+@keyframes slide-from-right {
+  from {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
-*/
+
+@keyframes slide-from-left {
+  from {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@theme {
+  --animate-slide-from-right: slide-from-right 0.35s ease-out;
+  --animate-slide-from-left: slide-from-left 0.35s ease-out;
+}
