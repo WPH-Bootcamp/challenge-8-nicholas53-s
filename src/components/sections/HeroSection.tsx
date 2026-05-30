@@ -1,8 +1,8 @@
 import { useTheme } from '../../hooks/useTheme';
 import { Button } from '../ui/Button';
 
-import heroLightImg from '../../assets/Herosection/Property-Light.svg';
-import heroDarkImg from '../../assets/Herosection/Property-Dark.svg';
+import heroLightImg from '../../Assets/Herosection/Property-Light.svg';
+import heroDarkImg from '../../Assets/Herosection/Property-Dark.svg';
 
 export function HeroSection() {
   const { theme } = useTheme();
